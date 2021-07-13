@@ -1,0 +1,30 @@
+version: "3"
+services:
+    nginx:
+        image: "mynginx"
+        ports:
+            - "443:443"
+            - "80:80"
+        env_file:
+            - .env
+        networks:
+            - backend
+    wordpress:
+        image: "mywordpress"
+        ports:
+            - "9000:9000"
+        env_file:
+            - .env
+        networks:
+            - backend
+    mariadb:
+        image: "mymariadb"
+        ports:
+            - "3306:3306"
+        env_file:
+            - .env
+        networks:
+            - backend
+
+networks:
+    backend:
