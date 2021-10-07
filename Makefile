@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iounejja <iounejja@student.42.fr>          +#+  +:+       +#+         #
+#    By: issamdounejjar <issamdounejjar@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/12 16:42:41 by iounejja          #+#    #+#              #
-#    Updated: 2021/07/12 16:47:25 by iounejja         ###   ########.fr        #
+#    Updated: 2021/10/07 14:18:17 by issamdounej      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,3 +22,5 @@ run:
 
 clear:
 	docker-compose -f $(DOCKER-COMPOSE-FILE) down
+
+start: clear build run

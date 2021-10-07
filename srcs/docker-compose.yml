@@ -1,30 +1,32 @@
 version: "3"
 services:
     nginx:
-        image: "mynginx"
+        container_name: "nginx"
+        image: "nginx"
         ports:
             - "443:443"
-            - "80:80"
         env_file:
             - .env
         networks:
-            - backend
+            - inception
+        restart: always
     wordpress:
-        image: "mywordpress"
-        ports:
-            - "9000:9000"
+        container_name: "wordpress"
+        image: "wordpress"
         env_file:
             - .env
         networks:
-            - backend
+            - inception
+        restart: always
     mariadb:
-        image: "mymariadb"
-        ports:
-            - "3306:3306"
+        container_name: "mariadb"
+        image: "mariadb"
         env_file:
             - .env
         networks:
-            - backend
+            - inception
+        restart: always
 
 networks:
-    backend:
+    inception:
+        name: "inception"
