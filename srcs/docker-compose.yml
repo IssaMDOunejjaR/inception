@@ -7,6 +7,8 @@ services:
             - "443:443"
         env_file:
             - .env
+        volumes:
+            - ./requirements/wordpress/srcs/www:/var/www
         networks:
             - inception
         restart: always
@@ -15,6 +17,9 @@ services:
         image: "wordpress"
         env_file:
             - .env
+        volumes:
+            - ./requirements/wordpress/srcs/www:/var/www
+            - ./requirements/wordpress/srcs/site:/
         networks:
             - inception
         restart: always
@@ -23,9 +28,15 @@ services:
         image: "mariadb"
         env_file:
             - .env
+        volumes:
+            - ./requirements/mariadb/srcs/database:/var/lib/mysql
         networks:
             - inception
         restart: always
+
+# volumes:
+#     database:
+#     wp-files:
 
 networks:
     inception:
