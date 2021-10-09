@@ -19,7 +19,7 @@ services:
             - .env
         volumes:
             - ./requirements/wordpress/srcs/www:/var/www
-            - ./requirements/wordpress/srcs/site:/
+            # - ./requirements/wordpress/srcs/site:/
         networks:
             - inception
         restart: always
@@ -33,10 +33,6 @@ services:
         networks:
             - inception
         restart: always
-
-# volumes:
-#     database:
-#     wp-files:
 
 networks:
     inception:
