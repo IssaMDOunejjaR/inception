@@ -21,7 +21,7 @@
 # fi
 
 # Download ubuntu.iso
-# sleep 2
+sleep 2
 echo "✅ Checking if there is an ubuntu image ..."
 # sleep 2
 if [ ! -f ./ubuntu.iso ]; then
