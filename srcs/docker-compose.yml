@@ -19,7 +19,6 @@ services:
             - .env
         volumes:
             - ./requirements/wordpress/srcs/www:/var/www
-            # - ./requirements/wordpress/srcs/site:/
         networks:
             - inception
         restart: always
@@ -30,6 +29,14 @@ services:
             - .env
         volumes:
             - ./requirements/mariadb/srcs/database:/var/lib/mysql
+        networks:
+            - inception
+        restart: always
+    ftp:
+        container_name: "ftp"
+        image: "ftp"
+        # volumes:
+        #     - 
         networks:
             - inception
         restart: always

@@ -12,15 +12,17 @@
 
 DOCKER-COMPOSE-FILE = ./srcs/docker-compose.yml
 
+
+make: clear build run
+
 build:
 	docker build -t nginx ./srcs/requirements/nginx
 	docker build -t wordpress ./srcs/requirements/wordpress
 	docker build -t mariadb ./srcs/requirements/mariadb
+	docker build -t ftp ./srcs/requirements/bonus/ftp
 
 run:
 	docker-compose -f $(DOCKER-COMPOSE-FILE) up
 
 clear:
 	docker-compose -f $(DOCKER-COMPOSE-FILE) down
-
-start: clear build run
