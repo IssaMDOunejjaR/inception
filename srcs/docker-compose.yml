@@ -8,7 +8,7 @@ services:
         env_file:
             - .env
         volumes:
-            - ./requirements/wordpress/srcs/www:/var/www
+            - site-files:/var/www
         networks:
             - inception
         restart: always
@@ -18,7 +18,7 @@ services:
         env_file:
             - .env
         volumes:
-            - ./requirements/wordpress/srcs/www:/var/www
+            - site-files:/var/www
         networks:
             - inception
         restart: always
@@ -27,8 +27,8 @@ services:
         image: "mariadb"
         env_file:
             - .env
-        # volumes:
-        #     - ./requirements/mariadb/srcs/database:/var/lib/mysql
+        volumes:
+            - database:/var/lib/mysql
         networks:
             - inception
         restart: always
@@ -38,11 +38,25 @@ services:
 		ports:
 			- "21:21"
 			- "30000-30100:30000-30100"
-        # volumes:
-        #     - 
+        volumes:
+            - site-files:/home/iounejja
         networks:
             - inception
         restart: always
+
+volumes:
+	site-files:
+		driver: local
+		driver_opts:
+			type: 'none'
+			o: 'bind'
+			device: '/home/iounejja/data/site-files'
+	database:
+		driver: local
+		driver_opts:
+			type: 'none'
+			o: 'bind'
+			device: '/home/iounejja/data/database'
 
 networks:
     inception:
