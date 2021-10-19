@@ -27,14 +27,23 @@ services:
         image: "mariadb"
         env_file:
             - .env
-        volumes:
-            - ./requirements/mariadb/srcs/database:/var/lib/mysql
+        # volumes:
+        #     - ./requirements/mariadb/srcs/database:/var/lib/mysql
         networks:
             - inception
         restart: always
+<<<<<<< HEAD
         #ftp:
         #container_name: "ftp"
         #image: "ftp"
+=======
+    ftp:
+        container_name: "ftp"
+        image: "ftp"
+		ports:
+			- "21:21"
+			- "30000-30100:30000-30100"
+>>>>>>> 267daf393b336ba5ca0133a40514253a069eccae
         # volumes:
         #     - 
         #networks:

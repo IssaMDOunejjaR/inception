@@ -10,4 +10,4 @@ COPY ./srcs/wordpress.sql /tmp
 
 CMD ["sh", "/tmp/setup.sh"]
 
-EXPOSE 3306
+EXPOSE 3306 
