@@ -12,6 +12,6 @@ COPY ./srcs/vsftpd.conf /etc/vsftpd
 RUN openrc
 RUN touch /run/openrc/softlevel
 
-# CMD ["/usr/sbin/vsftpd", "/etc/vsftpd/vsftpd.conf"]
+CMD ["/usr/sbin/vsftpd", "/etc/vsftpd/vsftpd.conf"]
 
 EXPOSE 21
