@@ -32,18 +32,12 @@ services:
         networks:
             - inception
         restart: always
-<<<<<<< HEAD
-        #ftp:
-        #container_name: "ftp"
-        #image: "ftp"
-=======
     ftp:
         container_name: "ftp"
         image: "ftp"
-		ports:
-			- "21:21"
-			- "30000-30100:30000-30100"
->>>>>>> 267daf393b336ba5ca0133a40514253a069eccae
+        ports:
+            - "21:21"
+            - "30000-30100:30000-30100"
         # volumes:
         #     - 
         #networks:
