@@ -32,14 +32,14 @@ services:
         networks:
             - inception
         restart: always
-    ftp:
-        container_name: "ftp"
-        image: "ftp"
+        #ftp:
+        #container_name: "ftp"
+        #image: "ftp"
         # volumes:
         #     - 
-        networks:
-            - inception
-        restart: always
+        #networks:
+        #   - inception
+        #restart: always
 
 networks:
     inception:
