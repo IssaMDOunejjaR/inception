@@ -43,14 +43,14 @@ services:
         networks:
             - inception
         restart: always
-	redis:
-		container_name: redis
-		image: redis
-		ports:
-			- "6379-6379"
-		networks:
-			- inception
-		restart: always
+    redis:
+        container_name: redis
+        image: redis
+        ports:
+            - "6379-6379"
+        networks:
+            - inception
+        restart: always
 
 volumes:
     site-files:
