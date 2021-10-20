@@ -1,6 +1,7 @@
 <?php
 
 define('WP_CACHE', true);
+define('FS_METHOD', 'direct');
 
 /**
  * The base configuration for WordPress
