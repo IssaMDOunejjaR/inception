@@ -45,18 +45,18 @@ services:
         restart: always
 
 volumes:
-	site-files:
-		driver: local
-		driver_opts:
-			type: 'none'
-			o: 'bind'
-			device: '/home/iounejja/data/site-files'
-	database:
-		driver: local
-		driver_opts:
-			type: 'none'
-			o: 'bind'
-			device: '/home/iounejja/data/database'
+    site-files:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/home/iounejja/data/site-files'
+    database:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/home/iounejja/data/database'
 
 networks:
     inception:
