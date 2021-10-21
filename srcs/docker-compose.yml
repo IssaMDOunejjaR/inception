@@ -51,6 +51,16 @@ services:
         networks:
             - inception
         restart: always
+    adminer:
+        container_name: adminer
+        image: adminer
+        ports:
+            - "8080:8080"
+        volumes:
+            - site-files:/var/www
+        networks:
+            - inception
+        restart: always
 
 volumes:
     site-files:

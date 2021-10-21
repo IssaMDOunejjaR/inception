@@ -20,6 +20,7 @@ build:
 	docker build -t mariadb ./srcs/requirements/mariadb
 	docker build -t ftp ./srcs/requirements/bonus/ftp
 	docker build -t redis ./srcs/requirements/bonus/redis
+	docker build -t adminer ./srcs/requirements/bonus/adminer
 
 run:
 	docker-compose -f $(DOCKER-COMPOSE-FILE) up
