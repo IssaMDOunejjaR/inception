@@ -14,5 +14,3 @@ then
 
 	service mariadb stop
 fi
-
-/usr/bin/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/mariadb/plugin --user=root --pid-file=/run/mysqld/mariadb.pid

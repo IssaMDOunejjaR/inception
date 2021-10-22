@@ -2,7 +2,7 @@ version: "3"
 services:
     nginx:
         container_name: "nginx"
-        image: "nginx"
+        image: nginx
         ports:
             - "443:443"
         env_file:
@@ -14,7 +14,7 @@ services:
         restart: always
     wordpress:
         container_name: "wordpress"
-        image: "wordpress"
+        image: wordpress
         env_file:
             - .env
         volumes:
@@ -24,7 +24,7 @@ services:
         restart: always
     mariadb:
         container_name: "mariadb"
-        image: "mariadb"
+        image: mariadb
         env_file:
             - .env
         volumes:
@@ -34,10 +34,10 @@ services:
         restart: always
     ftp:
         container_name: "ftp"
-        image: "ftp"
+        image: ftp
         ports:
             - "21:21"
-            - "30000-30100:30000-30100"
+            - "30000:30000"
         volumes:
             - site-files:/home/iounejja
         networks:
@@ -46,18 +46,30 @@ services:
     redis:
         container_name: redis
         image: redis
-        ports:
-            - "6379-6379"
         networks:
             - inception
         restart: always
     adminer:
         container_name: adminer
         image: adminer
-        ports:
-            - "8080:8080"
         volumes:
             - site-files:/var/www
+        networks:
+            - inception
+        restart: always
+    grafana:
+        container_name: grafana
+        image: grafana
+        ports:
+            - "3000:3000"
+        networks:
+            - inception
+        restart: always
+    influxdb:
+        container_name: influxdb
+        image: influxdb
+        volumes:
+            - influxdb:/var/lib/influxdb/data/collectd
         networks:
             - inception
         restart: always
@@ -75,6 +87,12 @@ volumes:
             type: 'none'
             o: 'bind'
             device: '/home/iounejja/data/database'
+    influxdb:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/home/iounejja/data/influxdb'
 
 networks:
     inception:
