@@ -5,7 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Presentation</title>
-	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 	<header id="inception">
@@ -14,8 +13,10 @@
 				<li><a href="#inception" class="nav-link">Inception</a></li>
 				<li><a href="#wordpress" class="nav-link">Wordpress</a></li>
 				<li><a href="#adminer" class="nav-link">Adminer</a></li>
-				<li><a href="/wordpress" class="nav-button">Go to Wordpress</a></li>
-				<li><a href="/adminer" class="nav-button">Go to Adminer</a></li>
+				<li><a href="#grafana" class="nav-link">Grafana</a></li>
+				<li><a href="https://iounejja.42.fr/wordpress" class="nav-button">Go to Wordpress</a></li>
+				<li><a href="https://iounejja.42.fr/adminer" class="nav-button">Go to Adminer</a></li>
+				<li><a href="https://iounejja.42.fr/grafana" class="nav-button">Go to Grafana</a></li>
 			</ul>
 		</nav>
 		<div>
@@ -44,5 +45,87 @@
 			</p>
 		</div>
 	</section>
+	<section id="grafana">
+		<div>
+			<h2>Grafana</h2>
+			<p>
+				Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources. A licensed Grafana Enterprise version with additional capabilities is also available as a self-hosted installation or an account on the Grafana Labs cloud service. It is expandable through a plug-in system. End users can create complex monitoring dashboards using interactive query builders. Grafana is divided into a front end and back end, written in TypeScript and Go, respectively.
+			</p>
+		</div>
+	</section>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		h1, h2 {
+			margin-bottom: 25px;
+		}
+
+		p {
+			max-width: 800px;
+			line-height: 1.5;
+		}
+
+		nav {
+			position: fixed;
+			top: 0;
+			display: flex;
+			flex-direction: row-reverse;
+			width: 100%;
+			height: 60px;
+			background-color: tomato;
+		}
+
+		nav ul {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			list-style: none;
+		}
+
+		nav a {
+			text-decoration: none;
+			color: white;
+			padding: 20px 10px;
+			transition: background .3s, color .3s;
+		}
+
+		nav .nav-link:hover {
+			color: tomato;
+			background: white;
+		}
+
+		nav .nav-button {
+			color: tomato;
+			background: white;
+			padding: 10px;
+			border-radius: 5px;
+			margin: 0 10px;
+			border: 1px solid white;
+		}
+
+		nav .nav-button:hover {
+			color: white;
+			background: tomato;
+		}
+
+		section, header > div {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
 </body>
 </html>

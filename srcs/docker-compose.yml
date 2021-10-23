@@ -2,6 +2,7 @@ version: "3"
 services:
     nginx:
         container_name: "nginx"
+        build: ./requirements/nginx
         image: nginx
         ports:
             - "443:443"
@@ -14,6 +15,7 @@ services:
         restart: always
     wordpress:
         container_name: "wordpress"
+        build: ./requirements/wordpress
         image: wordpress
         env_file:
             - .env
@@ -24,6 +26,7 @@ services:
         restart: always
     mariadb:
         container_name: "mariadb"
+        build: ./requirements/mariadb
         image: mariadb
         env_file:
             - .env
@@ -34,6 +37,7 @@ services:
         restart: always
     ftp:
         container_name: "ftp"
+        build: ./requirements/bonus/ftp
         image: ftp
         ports:
             - "21:21"
@@ -45,12 +49,14 @@ services:
         restart: always
     redis:
         container_name: redis
+        build: ./requirements/bonus/redis
         image: redis
         networks:
             - inception
         restart: always
     adminer:
         container_name: adminer
+        build: ./requirements/bonus/adminer
         image: adminer
         volumes:
             - site-files:/var/www
@@ -59,6 +65,7 @@ services:
         restart: always
     grafana:
         container_name: grafana
+        build: ./requirements/bonus/grafana
         image: grafana
         ports:
             - "3000:3000"
@@ -67,9 +74,21 @@ services:
         restart: always
     influxdb:
         container_name: influxdb
+        build: ./requirements/bonus/influxdb
         image: influxdb
         volumes:
             - influxdb:/var/lib/influxdb/data/collectd
+        networks:
+            - inception
+        restart: always
+    website:
+        container_name: website
+        build: ./requirements/bonus/website
+        image: website
+        ports:
+            - 5000:5000
+        volumes:
+            - site-files:/var/www
         networks:
             - inception
         restart: always

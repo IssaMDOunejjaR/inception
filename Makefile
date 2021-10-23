@@ -15,15 +15,7 @@ DOCKER-COMPOSE-FILE = ./srcs/docker-compose.yml
 make: clear build run
 
 build:
-	# cd srcs && docker-compose build
-	docker build -t nginx ./srcs/requirements/nginx
-	docker build -t wordpress ./srcs/requirements/wordpress
-	docker build -t mariadb ./srcs/requirements/mariadb
-	docker build -t ftp ./srcs/requirements/bonus/ftp
-	docker build -t redis ./srcs/requirements/bonus/redis
-	docker build -t adminer ./srcs/requirements/bonus/adminer
-	docker build -t grafana ./srcs/requirements/bonus/grafana
-	docker build -t influxdb ./srcs/requirements/bonus/influxdb
+	cd srcs && docker-compose build
 
 run:
 	docker-compose -f $(DOCKER-COMPOSE-FILE) up
