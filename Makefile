@@ -12,8 +12,6 @@
 
 DOCKER-COMPOSE-FILE = ./srcs/docker-compose.yml
 
-DOCKER_CONTAINERS = $(shell docker ps -qa)
-
 make: build run
 
 build:
