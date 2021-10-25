@@ -12,4 +12,4 @@ COPY ./srcs/telegraf.conf /etc
 
 CMD sh /tmp/setup.sh && /usr/bin/supervisord -c /etc/supervisord.conf
 
-EXPOSE 21
+EXPOSE 21 30000
