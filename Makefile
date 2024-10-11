@@ -20,20 +20,19 @@ folders:
 	mkdir -pv ~/data/influxdb
 	
 build:
-	cd srcs && docker-compose build
+	cd srcs && docker compose build
 
 run:
-	docker-compose -f $(DOCKER-COMPOSE-FILE) up -d
+	docker compose -f $(DOCKER-COMPOSE-FILE) up -d
 
 down:
-	docker-compose -f $(DOCKER-COMPOSE-FILE) down
+	docker compose -f $(DOCKER-COMPOSE-FILE) down
 
 clean:
 	$(if $(strip $(shell docker ps -qa)), docker stop $(shell docker ps -qa))
 	$(if $(strip $(shell docker ps -qa)), docker rm -f $(shell docker ps -qa))
 	$(if $(strip $(shell docker images -qa)), docker rmi -f $(shell docker images -qa))
 	$(if $(strip $(shell docker volume ls -q)), docker volume rm $(shell docker volume ls -q))
-	$(if $(strip $(shell docker network ls -q)), docker network rm $(shell docker network ls -q))
 
 clean_volumes:
 	sudo rm -rf ~/data/database/*
