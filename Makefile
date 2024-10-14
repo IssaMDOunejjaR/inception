@@ -18,6 +18,7 @@ folders:
 	mkdir -pv ~/data/site-files
 	mkdir -pv ~/data/database
 	mkdir -pv ~/data/influxdb
+	mkdir -pv ~/data/grafana
 	
 build:
 	cd srcs && docker compose build
@@ -38,5 +39,6 @@ clean_volumes:
 	sudo rm -rf ~/data/database/*
 	sudo rm -rf ~/data/site-files/*
 	sudo rm -rf ~/data/influxdb/*
+	sudo rm -rf ~/data/grafana/*
 
-re: down build run
+re: down folders build run
